@@ -15,5 +15,5 @@ public class BetaTimestamp {
     public BetaTimestamp() {}
     @com.fasterxml.jackson.annotation.JsonCreator(mode = com.fasterxml.jackson.annotation.JsonCreator.Mode.DELEGATING)
     public BetaTimestamp(OffsetDateTime value) { this.value = value; }
-    @java.lang.Override public String toString() { return String.valueOf(value); }
+    @java.lang.Override public String toString() { return value == null ? "null" : java.time.format.DateTimeFormatter.ISO_OFFSET_DATE_TIME.format(value); }
 }

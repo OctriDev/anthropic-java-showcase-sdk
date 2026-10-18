@@ -59,6 +59,132 @@ public interface CountMessageTokensParamsToolsItem {
             }
             try {
                 Tool branch = mapper.convertValue(node, Tool.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                BashTool_20250124 branch = mapper.convertValue(node, BashTool_20250124.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                CodeExecutionTool_20250522 branch = mapper.convertValue(node, CodeExecutionTool_20250522.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                CodeExecutionTool_20250825 branch = mapper.convertValue(node, CodeExecutionTool_20250825.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                CodeExecutionTool_20260120 branch = mapper.convertValue(node, CodeExecutionTool_20260120.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                CodeExecutionTool_20260521 branch = mapper.convertValue(node, CodeExecutionTool_20260521.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                BrowserToolset_20260801 branch = mapper.convertValue(node, BrowserToolset_20260801.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                MemoryTool_20250818 branch = mapper.convertValue(node, MemoryTool_20250818.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                ComputerToolset_20260801 branch = mapper.convertValue(node, ComputerToolset_20260801.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                TextEditor_20250124 branch = mapper.convertValue(node, TextEditor_20250124.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                TextEditor_20250429 branch = mapper.convertValue(node, TextEditor_20250429.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                TextEditor_20250728 branch = mapper.convertValue(node, TextEditor_20250728.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                WebSearchTool_20250305 branch = mapper.convertValue(node, WebSearchTool_20250305.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                WebFetchTool_20250910 branch = mapper.convertValue(node, WebFetchTool_20250910.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                WebSearchTool_20260209 branch = mapper.convertValue(node, WebSearchTool_20260209.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                WebFetchTool_20260209 branch = mapper.convertValue(node, WebFetchTool_20260209.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                WebFetchTool_20260309 branch = mapper.convertValue(node, WebFetchTool_20260309.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                WebSearchTool_20260318 branch = mapper.convertValue(node, WebSearchTool_20260318.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                WebFetchTool_20260318 branch = mapper.convertValue(node, WebFetchTool_20260318.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                ToolSearchToolBM25_20251119 branch = mapper.convertValue(node, ToolSearchToolBM25_20251119.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                ToolSearchToolRegex_20251119 branch = mapper.convertValue(node, ToolSearchToolRegex_20251119.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                Tool branch = mapper.convertValue(node, Tool.class);
                 return branch;
             } catch (IllegalArgumentException | SdkValidationError ignored) {
                 // Not this branch.
@@ -185,6 +311,17 @@ public interface CountMessageTokensParamsToolsItem {
             }
             throw com.fasterxml.jackson.databind.exc.MismatchedInputException.from(
                 parser, CountMessageTokensParamsToolsItem.class, "no CountMessageTokensParamsToolsItem branch accepts this payload");
+        }
+
+        private static boolean keepsEveryKey(
+            com.fasterxml.jackson.databind.ObjectMapper mapper,
+            com.fasterxml.jackson.databind.JsonNode node,
+            Object branch) {
+            com.fasterxml.jackson.databind.JsonNode kept = mapper.valueToTree(branch);
+            for (java.util.Iterator<String> names = node.fieldNames(); names.hasNext(); ) {
+                if (!kept.has(names.next())) return false;
+            }
+            return true;
         }
     }
 }
