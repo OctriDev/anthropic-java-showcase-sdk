@@ -24,6 +24,18 @@ public interface BetaManagedAgentsEffortParams {
             com.fasterxml.jackson.databind.JsonNode node = parser.readValueAsTree();
             try {
                 BetaManagedAgentsEffortLevel branch = mapper.convertValue(node, BetaManagedAgentsEffortLevel.class);
+                if (keepsEveryKey(mapper, node, branch)) return branch;
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                BetaManagedAgentsEffort branch = mapper.convertValue(node, BetaManagedAgentsEffort.class);
+                if (keepsEveryKey(mapper, node, branch)) return new BetaManagedAgentsEffortParamsBetaManagedAgentsEffortValue(branch);
+            } catch (IllegalArgumentException | SdkValidationError ignored) {
+                // Not this branch.
+            }
+            try {
+                BetaManagedAgentsEffortLevel branch = mapper.convertValue(node, BetaManagedAgentsEffortLevel.class);
                 return branch;
             } catch (IllegalArgumentException | SdkValidationError ignored) {
                 // Not this branch.
@@ -36,6 +48,17 @@ public interface BetaManagedAgentsEffortParams {
             }
             throw com.fasterxml.jackson.databind.exc.MismatchedInputException.from(
                 parser, BetaManagedAgentsEffortParams.class, "no BetaManagedAgentsEffortParams branch accepts this payload");
+        }
+
+        private static boolean keepsEveryKey(
+            com.fasterxml.jackson.databind.ObjectMapper mapper,
+            com.fasterxml.jackson.databind.JsonNode node,
+            Object branch) {
+            com.fasterxml.jackson.databind.JsonNode kept = mapper.valueToTree(branch);
+            for (java.util.Iterator<String> names = node.fieldNames(); names.hasNext(); ) {
+                if (!kept.has(names.next())) return false;
+            }
+            return true;
         }
     }
 }
