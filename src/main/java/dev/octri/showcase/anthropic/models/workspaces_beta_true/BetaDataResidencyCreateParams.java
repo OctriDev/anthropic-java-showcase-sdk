@@ -4,7 +4,9 @@
 package dev.octri.showcase.anthropic.models.workspaces_beta_true;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import dev.octri.showcase.anthropic.models.shared_beta_allowed.BetaAllowedInferenceGeo;
 import dev.octri.showcase.anthropic.models.shared_beta_inference.BetaInferenceGeo;
+import java.util.List;
 import javax.annotation.Nullable;
 
 /**
@@ -16,7 +18,7 @@ public final class BetaDataResidencyCreateParams {
     /**
      * Permitted inference geo values. Defaults to 'unrestricted' if omitted, which allows all geos. Use the string 'unrestricted' to allow all geos, or a list of specific geos.
      */
-    @Nullable @JsonProperty("allowed_inference_geos") public Object allowedInferenceGeos;
+    @Nullable @JsonProperty("allowed_inference_geos") public List<BetaAllowedInferenceGeo> allowedInferenceGeos;
     /**
      * Default inference geo applied when requests omit the parameter. Defaults to 'global' if omitted. Must be a member of `allowed_inference_geos` unless `allowed_inference_geos` is `"unrestricted"`.
      */
@@ -28,10 +30,10 @@ public final class BetaDataResidencyCreateParams {
     private BetaDataResidencyCreateParams() {}
     public static Builder builder() { return new Builder(); }
     public static final class Builder {
-        private Object allowedInferenceGeos;
+        private List<BetaAllowedInferenceGeo> allowedInferenceGeos;
         private BetaInferenceGeo defaultInferenceGeo;
         private BetaWorkspaceGeo workspaceGeo;
-        public Builder allowedInferenceGeos(Object value) { this.allowedInferenceGeos = value; return this; }
+        public Builder allowedInferenceGeos(List<BetaAllowedInferenceGeo> value) { this.allowedInferenceGeos = value; return this; }
         public Builder defaultInferenceGeo(BetaInferenceGeo value) { this.defaultInferenceGeo = value; return this; }
         public Builder workspaceGeo(BetaWorkspaceGeo value) { this.workspaceGeo = value; return this; }
         public BetaDataResidencyCreateParams build() {
