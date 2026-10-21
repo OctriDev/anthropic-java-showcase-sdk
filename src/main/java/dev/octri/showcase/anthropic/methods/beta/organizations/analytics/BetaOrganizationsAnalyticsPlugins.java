@@ -16,62 +16,62 @@ import java.util.List;
 
 public class BetaOrganizationsAnalyticsPlugins {
 
-    public static final class ListBetaOrganizationsAnalyticsPluginsGroupByItem {
-        public static final ListBetaOrganizationsAnalyticsPluginsGroupByItem PRODUCT = new ListBetaOrganizationsAnalyticsPluginsGroupByItem("product");
-        public static final ListBetaOrganizationsAnalyticsPluginsGroupByItem RBAC_GROUP_ID = new ListBetaOrganizationsAnalyticsPluginsGroupByItem("rbac_group_id");
-        public static final ListBetaOrganizationsAnalyticsPluginsGroupByItem USER_ID = new ListBetaOrganizationsAnalyticsPluginsGroupByItem("user_id");
+    public static final class ListBetaOrganizationAnalyticsPluginsGroupByItem {
+        public static final ListBetaOrganizationAnalyticsPluginsGroupByItem PRODUCT = new ListBetaOrganizationAnalyticsPluginsGroupByItem("product");
+        public static final ListBetaOrganizationAnalyticsPluginsGroupByItem RBAC_GROUP_ID = new ListBetaOrganizationAnalyticsPluginsGroupByItem("rbac_group_id");
+        public static final ListBetaOrganizationAnalyticsPluginsGroupByItem USER_ID = new ListBetaOrganizationAnalyticsPluginsGroupByItem("user_id");
         private final String value;
-        private ListBetaOrganizationsAnalyticsPluginsGroupByItem(String value) { this.value = java.util.Objects.requireNonNull(value, "value"); }
+        private ListBetaOrganizationAnalyticsPluginsGroupByItem(String value) { this.value = java.util.Objects.requireNonNull(value, "value"); }
         @com.fasterxml.jackson.annotation.JsonCreator(mode = com.fasterxml.jackson.annotation.JsonCreator.Mode.DELEGATING)
-        public static ListBetaOrganizationsAnalyticsPluginsGroupByItem fromValue(String value) {
+        public static ListBetaOrganizationAnalyticsPluginsGroupByItem fromValue(String value) {
             if ("product".equals(value)) return PRODUCT;
             if ("rbac_group_id".equals(value)) return RBAC_GROUP_ID;
             if ("user_id".equals(value)) return USER_ID;
-            return new ListBetaOrganizationsAnalyticsPluginsGroupByItem(value);
+            return new ListBetaOrganizationAnalyticsPluginsGroupByItem(value);
         }
         @com.fasterxml.jackson.annotation.JsonValue public String getValue() { return value; }
         @java.lang.Override public String toString() { return value; }
         @java.lang.Override public boolean equals(Object other) {
-            return this == other || (other instanceof ListBetaOrganizationsAnalyticsPluginsGroupByItem o && value.equals(o.value));
+            return this == other || (other instanceof ListBetaOrganizationAnalyticsPluginsGroupByItem o && value.equals(o.value));
         }
         @java.lang.Override public int hashCode() { return value.hashCode(); }
     }
 
-    public static class ListBetaOrganizationsAnalyticsPluginsRequest {
+    public static class ListBetaOrganizationAnalyticsPluginsRequest {
 
         private SdkClient.OptionalValue<LocalDate> date;
         private SdkClient.OptionalValue<LocalDate> startingDate;
         private SdkClient.OptionalValue<LocalDate> endingDate;
         private SdkClient.OptionalValue<Long> limit;
         private SdkClient.OptionalValue<String> page;
-        private SdkClient.OptionalValue<List<ListBetaOrganizationsAnalyticsPluginsGroupByItem>> groupBy;
+        private SdkClient.OptionalValue<List<ListBetaOrganizationAnalyticsPluginsGroupByItem>> groupBy;
         private SdkClient.OptionalValue<List<String>> filter;
         private SdkClient.OptionalValue<String> orderBy;
         private SdkClient.OptionalValue<BetaManagedAgentsListOrder> order;
 
-        private ListBetaOrganizationsAnalyticsPluginsRequest() {}
+        private ListBetaOrganizationAnalyticsPluginsRequest() {}
 
         public static Builder builder() { return new Builder(); }
 
         public static class Builder {
-            private final ListBetaOrganizationsAnalyticsPluginsRequest request = new ListBetaOrganizationsAnalyticsPluginsRequest();
+            private final ListBetaOrganizationAnalyticsPluginsRequest request = new ListBetaOrganizationAnalyticsPluginsRequest();
             public Builder date(SdkClient.OptionalValue<LocalDate> val) { request.date = val; return this; }
             public Builder startingDate(SdkClient.OptionalValue<LocalDate> val) { request.startingDate = val; return this; }
             public Builder endingDate(SdkClient.OptionalValue<LocalDate> val) { request.endingDate = val; return this; }
             public Builder limit(SdkClient.OptionalValue<Long> val) { request.limit = val; return this; }
             public Builder page(SdkClient.OptionalValue<String> val) { request.page = val; return this; }
-            public Builder groupBy(SdkClient.OptionalValue<List<ListBetaOrganizationsAnalyticsPluginsGroupByItem>> val) { request.groupBy = val; return this; }
+            public Builder groupBy(SdkClient.OptionalValue<List<ListBetaOrganizationAnalyticsPluginsGroupByItem>> val) { request.groupBy = val; return this; }
             public Builder filter(SdkClient.OptionalValue<List<String>> val) { request.filter = val; return this; }
             public Builder orderBy(SdkClient.OptionalValue<String> val) { request.orderBy = val; return this; }
             public Builder order(SdkClient.OptionalValue<BetaManagedAgentsListOrder> val) { request.order = val; return this; }
-            public ListBetaOrganizationsAnalyticsPluginsRequest build() { return request; }
+            public ListBetaOrganizationAnalyticsPluginsRequest build() { return request; }
         }
         public SdkClient.OptionalValue<LocalDate> getDate() { return date; }
         public SdkClient.OptionalValue<LocalDate> getStartingDate() { return startingDate; }
         public SdkClient.OptionalValue<LocalDate> getEndingDate() { return endingDate; }
         public SdkClient.OptionalValue<Long> getLimit() { return limit; }
         public SdkClient.OptionalValue<String> getPage() { return page; }
-        public SdkClient.OptionalValue<List<ListBetaOrganizationsAnalyticsPluginsGroupByItem>> getGroupBy() { return groupBy; }
+        public SdkClient.OptionalValue<List<ListBetaOrganizationAnalyticsPluginsGroupByItem>> getGroupBy() { return groupBy; }
         public SdkClient.OptionalValue<List<String>> getFilter() { return filter; }
         public SdkClient.OptionalValue<String> getOrderBy() { return orderBy; }
         public SdkClient.OptionalValue<BetaManagedAgentsListOrder> getOrder() { return order; }
@@ -80,20 +80,20 @@ public class BetaOrganizationsAnalyticsPlugins {
     /**
      * Get per-plugin install + invocation usage for a given day, with pagination. Returns plugin usage metrics for the organization across Cowork and Claude Code, sorted by plugin name. The `plugin_name` value `third-party` is an aggregate bucket, not a plugin: it collects plugin activity, from either surface, for which the reporting client did not provide a plugin name — so an organization's own plugins can contribute both to their own named rows and to this bucket. Use `group_by[]` to break usage out per member, per RBAC group, or per product surface (Cowork / Claude Code), and `filter[]` to scope results; the parameter descriptions list the supported dimensions. Requires an API key with the `read:analytics` scope. `starting_date` / `ending_date` select range-rollup mode like `/skills`.
      */
-    public static BetaAnalyticsPluginsResponse listBetaOrganizationsAnalyticsPlugins(SdkConfig.ClientConfig clientConfig, ListBetaOrganizationsAnalyticsPluginsRequest request) {
-        return listBetaOrganizationsAnalyticsPlugins(clientConfig, request, null);
+    public static BetaAnalyticsPluginsResponse listBetaOrganizationAnalyticsPlugins(SdkConfig.ClientConfig clientConfig, ListBetaOrganizationAnalyticsPluginsRequest request) {
+        return listBetaOrganizationAnalyticsPlugins(clientConfig, request, null);
     }
 
     /**
      * Get per-plugin install + invocation usage for a given day, with pagination. Returns plugin usage metrics for the organization across Cowork and Claude Code, sorted by plugin name. The `plugin_name` value `third-party` is an aggregate bucket, not a plugin: it collects plugin activity, from either surface, for which the reporting client did not provide a plugin name — so an organization's own plugins can contribute both to their own named rows and to this bucket. Use `group_by[]` to break usage out per member, per RBAC group, or per product surface (Cowork / Claude Code), and `filter[]` to scope results; the parameter descriptions list the supported dimensions. Requires an API key with the `read:analytics` scope. `starting_date` / `ending_date` select range-rollup mode like `/skills`.
      */
-    public static BetaAnalyticsPluginsResponse listBetaOrganizationsAnalyticsPlugins(SdkConfig.ClientConfig clientConfig, ListBetaOrganizationsAnalyticsPluginsRequest request, SdkConfig.RequestOptions options) {
+    public static BetaAnalyticsPluginsResponse listBetaOrganizationAnalyticsPlugins(SdkConfig.ClientConfig clientConfig, ListBetaOrganizationAnalyticsPluginsRequest request, SdkConfig.RequestOptions options) {
         SdkClient.OptionalValue<LocalDate> date = request.getDate();
         SdkClient.OptionalValue<LocalDate> startingDate = request.getStartingDate();
         SdkClient.OptionalValue<LocalDate> endingDate = request.getEndingDate();
         SdkClient.OptionalValue<Long> limit = request.getLimit();
         SdkClient.OptionalValue<String> page = request.getPage();
-        SdkClient.OptionalValue<List<ListBetaOrganizationsAnalyticsPluginsGroupByItem>> groupBy = request.getGroupBy();
+        SdkClient.OptionalValue<List<ListBetaOrganizationAnalyticsPluginsGroupByItem>> groupBy = request.getGroupBy();
         SdkClient.OptionalValue<List<String>> filter = request.getFilter();
         SdkClient.OptionalValue<String> orderBy = request.getOrderBy();
         SdkClient.OptionalValue<BetaManagedAgentsListOrder> order = request.getOrder();
@@ -106,7 +106,7 @@ public class BetaOrganizationsAnalyticsPlugins {
             { Validation.LengthOpts __i = new Validation.LengthOpts(); __i.max = 100; Validation.validateItems("filter[]", filter.value(), __i); }
         }
 
-        return SdkClient.request(clientConfig, "GET", "/v1/organizations/analytics/plugins?beta=true", SdkClient.q("date", SdkClient.queryValue(date, "form", true), "starting_date", SdkClient.queryValue(startingDate, "form", true), "ending_date", SdkClient.queryValue(endingDate, "form", true), "limit", SdkClient.queryValue(limit, "form", true), "page", SdkClient.queryValue(page, "form", true), "group_by[]", SdkClient.queryValue(groupBy, "form", true), "filter[]", SdkClient.queryValue(filter, "form", true), "order_by", SdkClient.queryValue(orderBy, "form", true), "order", SdkClient.queryValue(order, "form", true)), null, null, new TypeReference<BetaAnalyticsPluginsResponse>(){}, "listBetaOrganizationsAnalyticsPlugins", null, SdkClient.ResponseDecoder.JSON, options, java.util.Map.ofEntries(java.util.Map.entry("400", BetaErrorResponse.class), java.util.Map.entry("401", BetaErrorResponse.class), java.util.Map.entry("403", BetaErrorResponse.class), java.util.Map.entry("404", BetaErrorResponse.class), java.util.Map.entry("408", BetaErrorResponse.class), java.util.Map.entry("409", BetaErrorResponse.class), java.util.Map.entry("412", BetaErrorResponse.class), java.util.Map.entry("413", BetaErrorResponse.class), java.util.Map.entry("429", BetaErrorResponse.class), java.util.Map.entry("431", BetaErrorResponse.class), java.util.Map.entry("499", BetaErrorResponse.class), java.util.Map.entry("500", BetaErrorResponse.class), java.util.Map.entry("501", BetaErrorResponse.class), java.util.Map.entry("503", BetaErrorResponse.class), java.util.Map.entry("504", BetaErrorResponse.class), java.util.Map.entry("529", BetaErrorResponse.class))).data;
+        return SdkClient.request(clientConfig, "GET", "/v1/organizations/analytics/plugins?beta=true", SdkClient.q("date", SdkClient.queryValue(date, "form", true), "starting_date", SdkClient.queryValue(startingDate, "form", true), "ending_date", SdkClient.queryValue(endingDate, "form", true), "limit", SdkClient.queryValue(limit, "form", true), "page", SdkClient.queryValue(page, "form", true), "group_by[]", SdkClient.queryValue(groupBy, "form", true), "filter[]", SdkClient.queryValue(filter, "form", true), "order_by", SdkClient.queryValue(orderBy, "form", true), "order", SdkClient.queryValue(order, "form", true)), null, null, new TypeReference<BetaAnalyticsPluginsResponse>(){}, "listBetaOrganizationAnalyticsPlugins", null, SdkClient.ResponseDecoder.JSON, options, java.util.Map.ofEntries(java.util.Map.entry("400", BetaErrorResponse.class), java.util.Map.entry("401", BetaErrorResponse.class), java.util.Map.entry("403", BetaErrorResponse.class), java.util.Map.entry("404", BetaErrorResponse.class), java.util.Map.entry("408", BetaErrorResponse.class), java.util.Map.entry("409", BetaErrorResponse.class), java.util.Map.entry("412", BetaErrorResponse.class), java.util.Map.entry("413", BetaErrorResponse.class), java.util.Map.entry("429", BetaErrorResponse.class), java.util.Map.entry("431", BetaErrorResponse.class), java.util.Map.entry("499", BetaErrorResponse.class), java.util.Map.entry("500", BetaErrorResponse.class), java.util.Map.entry("501", BetaErrorResponse.class), java.util.Map.entry("503", BetaErrorResponse.class), java.util.Map.entry("504", BetaErrorResponse.class), java.util.Map.entry("529", BetaErrorResponse.class))).data;
     }
 
 
@@ -114,17 +114,17 @@ public class BetaOrganizationsAnalyticsPlugins {
     /**
      * Get per-plugin install + invocation usage for a given day, with pagination. Returns plugin usage metrics for the organization across Cowork and Claude Code, sorted by plugin name. The `plugin_name` value `third-party` is an aggregate bucket, not a plugin: it collects plugin activity, from either surface, for which the reporting client did not provide a plugin name — so an organization's own plugins can contribute both to their own named rows and to this bucket. Use `group_by[]` to break usage out per member, per RBAC group, or per product surface (Cowork / Claude Code), and `filter[]` to scope results; the parameter descriptions list the supported dimensions. Requires an API key with the `read:analytics` scope. `starting_date` / `ending_date` select range-rollup mode like `/skills`.
      */
-    public static void listBetaOrganizationsAnalyticsPluginsPaginated(SdkConfig.ClientConfig clientConfig, ListBetaOrganizationsAnalyticsPluginsRequest request, java.util.function.Predicate<BetaAnalyticsPluginActivity> yield) {
-        listBetaOrganizationsAnalyticsPluginsPaginated(clientConfig, request, null, yield);
+    public static void listBetaOrganizationAnalyticsPluginsPaginated(SdkConfig.ClientConfig clientConfig, ListBetaOrganizationAnalyticsPluginsRequest request, java.util.function.Predicate<BetaAnalyticsPluginActivity> yield) {
+        listBetaOrganizationAnalyticsPluginsPaginated(clientConfig, request, null, yield);
     }
 
     /**
      * Get per-plugin install + invocation usage for a given day, with pagination. Returns plugin usage metrics for the organization across Cowork and Claude Code, sorted by plugin name. The `plugin_name` value `third-party` is an aggregate bucket, not a plugin: it collects plugin activity, from either surface, for which the reporting client did not provide a plugin name — so an organization's own plugins can contribute both to their own named rows and to this bucket. Use `group_by[]` to break usage out per member, per RBAC group, or per product surface (Cowork / Claude Code), and `filter[]` to scope results; the parameter descriptions list the supported dimensions. Requires an API key with the `read:analytics` scope. `starting_date` / `ending_date` select range-rollup mode like `/skills`.
      */
-    public static void listBetaOrganizationsAnalyticsPluginsPaginated(SdkConfig.ClientConfig clientConfig, ListBetaOrganizationsAnalyticsPluginsRequest request, SdkConfig.RequestOptions options, java.util.function.Predicate<BetaAnalyticsPluginActivity> yield) {
+    public static void listBetaOrganizationAnalyticsPluginsPaginated(SdkConfig.ClientConfig clientConfig, ListBetaOrganizationAnalyticsPluginsRequest request, SdkConfig.RequestOptions options, java.util.function.Predicate<BetaAnalyticsPluginActivity> yield) {
         SdkClient.OptionalValue<String> _cursor = request.getPage();
         while (true) {
-            ListBetaOrganizationsAnalyticsPluginsRequest.Builder __b = ListBetaOrganizationsAnalyticsPluginsRequest.builder();
+            ListBetaOrganizationAnalyticsPluginsRequest.Builder __b = ListBetaOrganizationAnalyticsPluginsRequest.builder();
             __b.date(request.getDate());
             __b.startingDate(request.getStartingDate());
             __b.endingDate(request.getEndingDate());
@@ -134,8 +134,8 @@ public class BetaOrganizationsAnalyticsPlugins {
             __b.filter(request.getFilter());
             __b.orderBy(request.getOrderBy());
             __b.order(request.getOrder());
-            ListBetaOrganizationsAnalyticsPluginsRequest __req = __b.build();
-            BetaAnalyticsPluginsResponse _page = listBetaOrganizationsAnalyticsPlugins(clientConfig, __req, options);
+            ListBetaOrganizationAnalyticsPluginsRequest __req = __b.build();
+            BetaAnalyticsPluginsResponse _page = listBetaOrganizationAnalyticsPlugins(clientConfig, __req, options);
             List<BetaAnalyticsPluginActivity> _items = _page.data;
             if (_items == null || _items.isEmpty()) { return; }
             for (BetaAnalyticsPluginActivity _item : _items) {
@@ -147,26 +147,26 @@ public class BetaOrganizationsAnalyticsPlugins {
         }
     }
 
-    public static final class ListBetaOrganizationsAnalyticsPluginsPage {
+    public static final class ListBetaOrganizationAnalyticsPluginsPage {
         public final BetaAnalyticsPluginsResponse data;
         public final List<BetaAnalyticsPluginActivity> items;
         public final boolean hasMore;
 
-        public ListBetaOrganizationsAnalyticsPluginsPage(BetaAnalyticsPluginsResponse data, List<BetaAnalyticsPluginActivity> items, boolean hasMore) {
+        public ListBetaOrganizationAnalyticsPluginsPage(BetaAnalyticsPluginsResponse data, List<BetaAnalyticsPluginActivity> items, boolean hasMore) {
             this.data = data;
             this.items = items;
             this.hasMore = hasMore;
         }
     }
 
-    public static void listBetaOrganizationsAnalyticsPluginsPages(SdkConfig.ClientConfig clientConfig, ListBetaOrganizationsAnalyticsPluginsRequest request, java.util.function.Predicate<ListBetaOrganizationsAnalyticsPluginsPage> yieldPage) {
-        listBetaOrganizationsAnalyticsPluginsPages(clientConfig, request, null, yieldPage);
+    public static void listBetaOrganizationAnalyticsPluginsPages(SdkConfig.ClientConfig clientConfig, ListBetaOrganizationAnalyticsPluginsRequest request, java.util.function.Predicate<ListBetaOrganizationAnalyticsPluginsPage> yieldPage) {
+        listBetaOrganizationAnalyticsPluginsPages(clientConfig, request, null, yieldPage);
     }
 
-    public static void listBetaOrganizationsAnalyticsPluginsPages(SdkConfig.ClientConfig clientConfig, ListBetaOrganizationsAnalyticsPluginsRequest request, SdkConfig.RequestOptions options, java.util.function.Predicate<ListBetaOrganizationsAnalyticsPluginsPage> yieldPage) {
+    public static void listBetaOrganizationAnalyticsPluginsPages(SdkConfig.ClientConfig clientConfig, ListBetaOrganizationAnalyticsPluginsRequest request, SdkConfig.RequestOptions options, java.util.function.Predicate<ListBetaOrganizationAnalyticsPluginsPage> yieldPage) {
         SdkClient.OptionalValue<String> _cursor = request.getPage();
         while (true) {
-            ListBetaOrganizationsAnalyticsPluginsRequest.Builder __b = ListBetaOrganizationsAnalyticsPluginsRequest.builder();
+            ListBetaOrganizationAnalyticsPluginsRequest.Builder __b = ListBetaOrganizationAnalyticsPluginsRequest.builder();
             __b.date(request.getDate());
             __b.startingDate(request.getStartingDate());
             __b.endingDate(request.getEndingDate());
@@ -176,13 +176,13 @@ public class BetaOrganizationsAnalyticsPlugins {
             __b.filter(request.getFilter());
             __b.orderBy(request.getOrderBy());
             __b.order(request.getOrder());
-            ListBetaOrganizationsAnalyticsPluginsRequest __req = __b.build();
-            BetaAnalyticsPluginsResponse _page = listBetaOrganizationsAnalyticsPlugins(clientConfig, __req, options);
+            ListBetaOrganizationAnalyticsPluginsRequest __req = __b.build();
+            BetaAnalyticsPluginsResponse _page = listBetaOrganizationAnalyticsPlugins(clientConfig, __req, options);
             List<BetaAnalyticsPluginActivity> _items = _page.data;
             if (_items == null || _items.isEmpty()) { return; }
             Object _next = _page.nextPage;
             boolean _hasMore = _next != null;
-            if (!yieldPage.test(new ListBetaOrganizationsAnalyticsPluginsPage(_page, _items, _hasMore))) { return; }
+            if (!yieldPage.test(new ListBetaOrganizationAnalyticsPluginsPage(_page, _items, _hasMore))) { return; }
             if (!_hasMore) { return; }
             _cursor = SdkClient.OptionalValue.present((String) _next);
         }
