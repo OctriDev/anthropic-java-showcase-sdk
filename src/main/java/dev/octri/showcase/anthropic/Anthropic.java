@@ -5182,29 +5182,29 @@ public class Anthropic {
         /**
          * Get per-plugin install + invocation usage for a given day, with pagination. Returns plugin usage metrics for the organization across Cowork and Claude Code, sorted by plugin name. The `plugin_name` value `third-party` is an aggregate bucket, not a plugin: it collects plugin activity, from either surface, for which the reporting client did not provide a plugin name — so an organization's own plugins can contribute both to their own named rows and to this bucket. Use `group_by[]` to break usage out per member, per RBAC group, or per product surface (Cowork / Claude Code), and `filter[]` to scope results; the parameter descriptions list the supported dimensions. Requires an API key with the `read:analytics` scope. `starting_date` / `ending_date` select range-rollup mode like `/skills`.
          */
-        public BetaAnalyticsPluginsResponse list(BetaOrganizationsAnalyticsPlugins.ListBetaOrganizationsAnalyticsPluginsRequest request) {
-            return BetaOrganizationsAnalyticsPlugins.listBetaOrganizationsAnalyticsPlugins(this.clientConfig, request);
+        public BetaAnalyticsPluginsResponse list(BetaOrganizationsAnalyticsPlugins.ListBetaOrganizationAnalyticsPluginsRequest request) {
+            return BetaOrganizationsAnalyticsPlugins.listBetaOrganizationAnalyticsPlugins(this.clientConfig, request);
         }
 
         /**
          * Get per-plugin install + invocation usage for a given day, with pagination. Returns plugin usage metrics for the organization across Cowork and Claude Code, sorted by plugin name. The `plugin_name` value `third-party` is an aggregate bucket, not a plugin: it collects plugin activity, from either surface, for which the reporting client did not provide a plugin name — so an organization's own plugins can contribute both to their own named rows and to this bucket. Use `group_by[]` to break usage out per member, per RBAC group, or per product surface (Cowork / Claude Code), and `filter[]` to scope results; the parameter descriptions list the supported dimensions. Requires an API key with the `read:analytics` scope. `starting_date` / `ending_date` select range-rollup mode like `/skills`.
          */
-        public BetaAnalyticsPluginsResponse list(BetaOrganizationsAnalyticsPlugins.ListBetaOrganizationsAnalyticsPluginsRequest request, SdkConfig.RequestOptions options) {
-            return BetaOrganizationsAnalyticsPlugins.listBetaOrganizationsAnalyticsPlugins(this.clientConfig, request, options);
+        public BetaAnalyticsPluginsResponse list(BetaOrganizationsAnalyticsPlugins.ListBetaOrganizationAnalyticsPluginsRequest request, SdkConfig.RequestOptions options) {
+            return BetaOrganizationsAnalyticsPlugins.listBetaOrganizationAnalyticsPlugins(this.clientConfig, request, options);
         }
 
         /**
          * Get per-plugin install + invocation usage for a given day, with pagination. Returns plugin usage metrics for the organization across Cowork and Claude Code, sorted by plugin name. The `plugin_name` value `third-party` is an aggregate bucket, not a plugin: it collects plugin activity, from either surface, for which the reporting client did not provide a plugin name — so an organization's own plugins can contribute both to their own named rows and to this bucket. Use `group_by[]` to break usage out per member, per RBAC group, or per product surface (Cowork / Claude Code), and `filter[]` to scope results; the parameter descriptions list the supported dimensions. Requires an API key with the `read:analytics` scope. `starting_date` / `ending_date` select range-rollup mode like `/skills`.
          */
-        public void listPaginated(BetaOrganizationsAnalyticsPlugins.ListBetaOrganizationsAnalyticsPluginsRequest request, java.util.function.Predicate<BetaAnalyticsPluginActivity> yield) {
-            BetaOrganizationsAnalyticsPlugins.listBetaOrganizationsAnalyticsPluginsPaginated(this.clientConfig, request, yield);
+        public void listPaginated(BetaOrganizationsAnalyticsPlugins.ListBetaOrganizationAnalyticsPluginsRequest request, java.util.function.Predicate<BetaAnalyticsPluginActivity> yield) {
+            BetaOrganizationsAnalyticsPlugins.listBetaOrganizationAnalyticsPluginsPaginated(this.clientConfig, request, yield);
         }
 
         /**
          * Get per-plugin install + invocation usage for a given day, with pagination. Returns plugin usage metrics for the organization across Cowork and Claude Code, sorted by plugin name. The `plugin_name` value `third-party` is an aggregate bucket, not a plugin: it collects plugin activity, from either surface, for which the reporting client did not provide a plugin name — so an organization's own plugins can contribute both to their own named rows and to this bucket. Use `group_by[]` to break usage out per member, per RBAC group, or per product surface (Cowork / Claude Code), and `filter[]` to scope results; the parameter descriptions list the supported dimensions. Requires an API key with the `read:analytics` scope. `starting_date` / `ending_date` select range-rollup mode like `/skills`.
          */
-        public void listPaginated(BetaOrganizationsAnalyticsPlugins.ListBetaOrganizationsAnalyticsPluginsRequest request, SdkConfig.RequestOptions options, java.util.function.Predicate<BetaAnalyticsPluginActivity> yield) {
-            BetaOrganizationsAnalyticsPlugins.listBetaOrganizationsAnalyticsPluginsPaginated(this.clientConfig, request, options, yield);
+        public void listPaginated(BetaOrganizationsAnalyticsPlugins.ListBetaOrganizationAnalyticsPluginsRequest request, SdkConfig.RequestOptions options, java.util.function.Predicate<BetaAnalyticsPluginActivity> yield) {
+            BetaOrganizationsAnalyticsPlugins.listBetaOrganizationAnalyticsPluginsPaginated(this.clientConfig, request, options, yield);
         }
 
     }
